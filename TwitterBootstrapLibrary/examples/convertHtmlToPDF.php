@@ -1,4 +1,5 @@
 <?php
+	/// comment only
 	require_once 'prince.php';
 	
 	$prince = new Prince('/usr/bin/prince');
