@@ -7,18 +7,21 @@
 <body>
 <!--header-->
 <div class="header">
-<div class="header-container">
-<a href=""><img class="logo" src="images/logo.svg"/></a>
-<ul class="main-nav">
-<li class="current">BUYING</li>
-<li>SELLING</li>
-<li>MOVING</li>
-<li>INSURANCE</li>
-<li>CONTACT</li>
-</ul>
-</div>
-</div>
 
+	<div class="header-container">
+		<a href=""><img class="logo" src="images/logo_rural.png"/></a>
+	<!--
+		<ul class="main-nav">
+		<li class="current">BUYING</li>
+		<li>SELLING</li>
+		<li>MOVING</li>
+		<li>INSURANCE</li>
+		<li>CONTACT</li>
+		</ul>
+	-->
+	</div>
+</div>
+	
 <!--content body-->
 <div class="content">
 
@@ -105,13 +108,13 @@ Water Rates
 	</div>
 </div>
 
- <!-- 
+ 
  <div class="google-map">
  	<iframe src="http://maps.google.com.au/maps?client=ubuntu&amp;channel=fs&amp;oe=utf-8&amp;q=221+queen+st+melbourne+vic+3000&amp;ie=UTF8&amp;hq=&amp;hnear=221+Queen+St,+Melbourne+Victoria+3000&amp;gl=au&amp;t=m&amp;z=14&amp;ll=-37.813462,144.959821&amp;output=embed"></iframe>
  	<div class="print-map">
 	</div>
  </div>
-  -->
+ 
  
 </td>
 </tr>
@@ -168,7 +171,9 @@ fermentum ac cursus vitae, tempus vel ipsum. Proin justo lorem, mattis sed phare
 <!--footer-->
 <div class="footer">
 <div class="footer-container">
-<a href="">About Us</a> | <a href="">Contact Us</a> | <a href="">Career</a> | <a href="">Privacy</a> | <a href="">Site Map</a>	
+<!--
+	<a href="">About Us</a> | <a href="">Contact Us</a> | <a href="">Career</a> | <a href="">Privacy</a> | <a href="">Site Map</a>
+-->	
 </div>
 </div>
 
