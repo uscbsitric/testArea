@@ -70,7 +70,7 @@
 						<div class="col-md-5">1</div>
 						<div class="col-md-7">
 							<div class="col-slide-right">
-								<h3>Need to beat a deadline? </h3>
+								<h3 id="slide1RotateTerms">Need to beat a deadline? </h3>
 								<p>You have come to the right place, <br/> as 100's of other happy clients have....</p>
 								<h4>We are your design and/development experts!</h4>
 								<h5>On Trend. On Time. Every Time.</h5>
@@ -155,6 +155,10 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-5">
+						<div class="col-slide-left">
+							<h3 id="slide2RotateTermsA" class="text-center">.</h3>
+							<h4 id="slide2RotateTermsB" class="text-center">.</h4>
+						</div>
 						<div data-stellar-ratio="0.7" data-stellar-vertical-offset="-50" id="slide-2-bird1"><img src="images/slide2-bird1.png" /></div>
 						<div data-stellar-ratio="1" data-stellar-vertical-offset="-50" id="slide-2-bird2"><img src="images/slide2-bird2.png" /></div>
 						<div data-stellar-ratio="0.7" data-stellar-vertical-offset="-50" id="slide-2-bird3"><img src="images/slide2-bird3.png" /></div>
@@ -185,8 +189,11 @@
 						<div class="slide2-box slide2-box3">
 							<div class="slide2-box-title"><h4>Employee Leasing Program</h4></div>
 							<div id="info">
-								<h3>Consectetur adipiscing elit.</h3>
-								<p>Tristique orci malesuada et. Ut eu augue orci. Pellentesque pharetra nec augue eu rhoncus. Pellentesque et est eu lectus ullamcorper imperdiet vel at tortor. Aliquam bibendum neque varius ultrices semper.</p>
+								<h3>Your Total Offshore Solution.</h3>
+								<p class="text-right">Through RipeConcepts employee leasing program, we guarantee you a MINIMUM of 50% savings with highly educated and qualified staffs.
+								   RipeConcepts simplify the outsourcing process for your company.<br>
+								   Contact us today to discuss your project.
+								</p>
 							</div>
 							<div id="bg"><img src="images/leasing-bg_mini.jpg" alt="#" /></div>
 							<div class="clear"></div>
@@ -217,6 +224,10 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-5">
+						<div class="col-slide-left">
+							<h3 id="slide3RotateTermsA" class="text-center">frederock</h3>
+							<h4 id="slide3RotateTermsB" class="text-center">frederock</h4>
+						</div>
 						<div data-stellar-ratio="0.7" data-stellar-vertical-offset="-50" id="slide-3-bird1"><img src="images/slide2-bird1.png" /></div>
 						<div data-stellar-ratio="1" data-stellar-vertical-offset="-50" id="slide-2-3-bird2"><img src="images/slide2-bird2.png" /></div>
 						<div data-stellar-ratio="0.7" data-stellar-vertical-offset="-50" id="slide-3-bird3"><img src="images/slide2-bird3.png" /></div>
@@ -282,6 +293,9 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-5">
+						<div class="col-slide-left">
+							<h3 id="slide4RotateTermsA" class="text-center">.</h3>
+						</div>
 						<div data-stellar-ratio="0.7" data-stellar-vertical-offset="-50" id="slide-4-bird1"><img src="images/slide2-bird1.png" /></div>
 						<div data-stellar-ratio="1" data-stellar-vertical-offset="-50" id="slide-2-4-bird2"><img src="images/slide2-bird2.png" /></div>
 						<div data-stellar-ratio="0.7" data-stellar-vertical-offset="-50" id="slide-4-bird3"><img src="images/slide2-bird3.png" /></div>
@@ -328,6 +342,10 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-5">
+						<div class="col-slide-left">
+							<h3 id="slide5RotateTermsA" class="text-center">.</h3>
+							<h4 id="slide5RotateTermsB" class="text-center">.</h4>
+						</div>
 						<div data-stellar-ratio="0.7" data-stellar-vertical-offset="-50" id="slide-5-bird1"><img src="images/slide2-bird1.png" /></div>
 						<div data-stellar-ratio="1" data-stellar-vertical-offset="-50" id="slide-2-5-bird2"><img src="images/slide2-bird2.png" /></div>
 						<div data-stellar-ratio="0.7" data-stellar-vertical-offset="-50" id="slide-5-bird3"><img src="images/slide2-bird3.png" /></div>
@@ -376,20 +394,122 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script src="js/slides.min.jquery.js"></script>
 	
-	<script>
-		$(function(){
-			$('#slides').slides({
-				preload: true,
-				generateNextPrev: true,
-				effect: 'fade',
-				
-				play: 5000,
-				pause: 2500,
-				hoverPause: true
-			});
-		});
+	<script type="text/javascript">
+
+		var slide1Terms = [{term: 'NEED TO BEAT A DEADLINE?', color: '#666'},
+		                   {term: 'NEED TO TAKE THE COST OUT?', color: '#F90'}
+						  ];
+		
+		var slide2Terms = [{term1: '850,000+', color1: '#F90', term2: 'Graphical Illustrations & Designs', color2: '#666'},
+		                   {term1: '90,000+',  color1: '#F90', term2: 'Websites & Software Apps', 		   color2: '#666'},
+		                   {term1: '10,000+',  color1: '#F90', term2: 'Animated Characters', 			   color2: '#666'}
+						  ];
+		
+		var slide3Terms = [{term1: '100', color1: '#F90', term2: 'Graphic and Designers Developers', color2: '#666'},
+		                   {term1: '10',  color1: '#F90', term2: 'Creative Directors & Software Engineers', color2: '#666'}
+						  ];
+		
+		var slide4Terms = [{term1: 'Consistency', color1: '#F90'},
+		                   {term1: 'Quality', 	  color1: '#F90'},
+		                   {term1: 'Speed', 	  color1: '#F90'},
+						  ];
+
+
+
+		function slide1RotateTerms()
+		{
+			var currentTerm = $("#slide1RotateTerms").data("term") || 0;
+
+			$("#slide1RotateTerms").data("term", (currentTerm == slide1Terms.length -1) ? 0:currentTerm + 1 )
+								   .text(slide1Terms[currentTerm].term)
+								   .css("color", slide1Terms[currentTerm].color)
+								   .fadeIn()
+								   .delay(2000)
+								   .fadeOut(200, slide1RotateTerms); // because I dont know how to add parameters to slide1RotateTerms(), I cannot fuse all slideRotateTerms() functions to one.
+		}
+		
+		function slide2RotateTerms()
+		{
+			var currentTermA = $("#slide2RotateTermsA").data("term") || 0;
+			var currentTermB = $("#slide2RotateTermsB").data("term") || 0;
+
+			$("#slide2RotateTermsA").data("term", (currentTermA == slide2Terms.length -1) ? 0:currentTermA + 1 )
+								    .text(slide2Terms[currentTermA].term1)
+								    .css("color", slide2Terms[currentTermA].color1)
+								    .fadeIn()
+								    .delay(2000)
+								    .fadeOut(200, slide2RotateTerms);
+			
+			$("#slide2RotateTermsB").data("term", (currentTermB == slide2Terms.length -1) ? 0:currentTermB + 1 )
+									.text(slide2Terms[currentTermB].term2)
+									.css("color", slide2Terms[currentTermB].color2)
+									.fadeIn()
+									.delay(2000)
+									.fadeOut(200, slide2RotateTerms);
+		}
+		
+		function slide3RotateTerms()
+		{
+			var currentTermA = $("#slide3RotateTermsA").data("term") || 0;
+			var currentTermB = $("#slide3RotateTermsB").data("term") || 0;
+
+			$("#slide3RotateTermsA").data("term", (currentTermA == slide3Terms.length -1) ? 0:currentTermA + 1 )
+									.text(slide3Terms[currentTermA].term1)
+									.css("color", slide2Terms[currentTermA].color1)
+									.fadeIn()
+									.delay(2000)
+									.fadeOut(200, slide3RotateTerms);
+			
+
+
+
+			$("#slide3RotateTermsB").data("term", (currentTermB == slide3Terms.length -1) ? 0:currentTermB + 1 )
+									.text(slide3Terms[currentTermB].term2)
+									.css("color", slide3Terms[currentTermB].color2)
+									.fadeIn()
+									.delay(2000)
+									.fadeOut(200, slide3RotateTerms);
+		}
+		
+		function slide4RotateTerms()
+		{
+			var currentTermA = $("#slide4RotateTermsA").data("term") || 0;
+			var currentTermB = $("#slide4RotateTermsB").data("term") || 0;
+
+			$("#slide4RotateTermsA").data("term", (currentTermA == slide3Terms.length -1) ? 0:currentTermA + 1 )
+									.text(slide4Terms[currentTermA].term1)
+									.css("color", slide4Terms[currentTermA].color1)
+									.fadeIn()
+									.delay(2000)
+									.fadeOut(200, slide4RotateTerms);
+		}
+
+
+
+		$(function()
+		  {
+			$('#slides').slides({preload: true,
+								 generateNextPrev: true,
+								 effect: 'fade',
+								 play: 5000,
+								 pause: 2500,
+								 hoverPause: true
+								}
+							   );
+
+			slide1RotateTerms();
+			slide2RotateTerms();
+			slide3RotateTerms();
+			slide4RotateTerms();
+		  }
+		);
+
 	</script>
-	
+
+		<!--
+			<h3 id="slide3RotateTermsA" class="text-center">.</h3>
+			<h4 id="slide3RotateTermsB" class="text-center">.</h4>
+		 -->	
 	
   </body>
 </html>
