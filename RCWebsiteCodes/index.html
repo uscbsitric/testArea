@@ -416,8 +416,9 @@
 
 
 
-		function slide1RotateTerms()
+		function slide1RotateTerms(waiGamit)
 		{
+			alert(waiGamit);
 			var currentTerm = $("#slide1RotateTerms").data("term") || 0;
 
 			$("#slide1RotateTerms").data("term", (currentTerm == slide1Terms.length -1) ? 0:currentTerm + 1 )
@@ -425,7 +426,7 @@
 								   .css("color", slide1Terms[currentTerm].color)
 								   .fadeIn()
 								   .delay(2000)
-								   .fadeOut(200, slide1RotateTerms); // because I dont know how to add parameters to slide1RotateTerms(), I cannot fuse all slideRotateTerms() functions to one.
+								   .fadeOut(200, slide1RotateTerms(6)); // because I dont know how to add parameters to slide1RotateTerms(), I cannot fuse all slideRotateTerms() functions to one.
 		}
 		
 		function slide2RotateTerms()
@@ -497,7 +498,7 @@
 								}
 							   );
 
-			slide1RotateTerms();
+			slide1RotateTerms(5);
 			slide2RotateTerms();
 			slide3RotateTerms();
 			slide4RotateTerms();
