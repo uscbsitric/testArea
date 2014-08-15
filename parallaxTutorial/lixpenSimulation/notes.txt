@@ -1,0 +1,83 @@
+<!-- 
+		http://babinho.net/2013/06/dynamically-moving-div-with-jquery/
+		http://stackoverflow.com/questions/8020497/how-to-move-an-element-on-scroll
+		http://jsfiddle.net/sVzfx/7/
+		http://stackoverflow.com/questions/15257623/jquery-move-an-element-on-scroll-stop-at-some-point-cross-browser-compatible
+		https://www.google.com/search?client=ubuntu&channel=fs&q=jquery+for+moving+elements+on+scroll&ie=utf-8&oe=utf-8
+		http://www.w3schools.com/cssref/pr_pos_z-index.asp
+		http://www.w3schools.com/cssref/pr_class_position.asp
+		http://www.w3schools.com/cssref/pr_background-attachment.asp
+		http://localhost/testArea/parallaxTutorial/simpleParallaxScrolling/simpleParallax.html
+		http://localhost/testArea/RCWebsiteCodes/
+
+
+
+
+
+
+
+
+
+		<div id='header'>Le header</div>
+		<div id='body'>
+		    <div id='content'>Le left content... Very largeNarration
+		Developing Composition Skills –Mary Ruetten (237)
+		</div>
+		    <div id='sidebar'>
+		        <div id='sticky'>Useful info while you scroll down</div>
+		    </div>
+		</div>
+		
+		
+		
+		
+		#header {
+		    height: 100px;
+		    background-color: yellow;
+		    border: 1px solid;
+		    height: 100px;
+		}
+		#body {
+		    background-color: white;
+		    border: 1px solid black:
+		}
+		#content {
+		    float: left;
+		    border: 1px solid black;
+		    width: 70%;
+		    height: 4900px;
+		}
+		#sidebar {
+		    float: right;
+		    border: 1px solid black;
+		    width: 25%;
+		}
+		#sticky {
+		    background-color: yellow;
+		}
+		
+		
+		
+		var baseTop = $("div#sticky").offset().top;
+		$(window).scroll(function () {
+		    var top = $(window).scrollTop();
+		    if (top >= baseTop) {
+		        $("div#sticky").css({
+		            "position": "fixed",
+		                "top": "2px"
+		        });
+		    } else if (top < baseTop) {
+		        $("div#sticky").css({
+		            "position": "",
+		                "top": ""
+		        });
+		    }
+		});
+
+
+
+
+
+
+
+ -->
