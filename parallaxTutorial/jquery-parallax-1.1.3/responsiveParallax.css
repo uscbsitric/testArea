@@ -1,0 +1,48 @@
+#nav
+{
+	list-style: none;
+	position: fixed;
+	right: 20px;
+}
+
+#nav li
+{
+	margin: 0 0 15px 0;	
+}
+
+#first
+{
+	background-image: url('images/firstBG.jpg');
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: 50% 0px;
+	background-clip: border-box;
+	background-origin: padding-box;
+	background-size: auto auto;
+	color: white;
+	height: 700px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#second
+{
+	background: url(images/secondBG.jpg) 50% 0 no-repeat fixed;
+	color: white;
+	height: 1300px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0;
+}
+
+#second .bg
+{
+	background: url(images/trainers.png) 50% 0 no-repeat fixed;
+	height: 1300px;
+	margin: 0 auto;
+	padding: 0;
+	position: absolute;
+	width: 900px;
+	z-index: 200;
+}
