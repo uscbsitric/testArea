@@ -10,7 +10,7 @@ html, body
 body
 {
     height: 100%;
-    background-color: #ff9;
+    background-color: #1ef;
 }
 
 			.site-wrapper
@@ -29,20 +29,26 @@ body
 	width:100%;
 	height: auto;
 	min-height: 100%; 
-	position: relative;
+	position: absolute;
+	z-index: 1;
+	padding-top: 101px;
+	padding-bottom: 101px;
 }
 
 
-
-header
+#header
 {
 	color: #333;
 	background-color: #fff;
 	border-color: #ccc;
 	width: 100%;
 
-    position: fixed;
+    position: absolute;
     top: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
+    height: 100px;
 	/*****
 	background-color: #999;
 	width: 100%;
@@ -52,15 +58,19 @@ header
 	*****/
 }
 
-footer
+#footer
 {
 	color: #333;
 	background-color: #fff;
 	border-color: #ccc;
 	width: 100%;
 
-    position: fixed;
+    position: absolute;
+    right: 0;
+    left: 0;
 	bottom: 0;
+	z-index: 3;
+    height: 100px;
 	/*****
 	background-color: #999;
 	width: 100%;
