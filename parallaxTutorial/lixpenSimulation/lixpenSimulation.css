@@ -29,7 +29,7 @@ body
 	width:100%;
 	height: auto;
 	min-height: 100%; 
-	position: absolute;
+	position: relative;
 	z-index: 1;
 	padding-top: 101px;
 	padding-bottom: 101px;
