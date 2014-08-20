@@ -28,7 +28,7 @@
 			background-color: #574;
 			z-index: 2;
 			position: fixed;
-			top: 420px;		
+			top: 220px;		
 		}
 	</style>
 </head>
@@ -79,16 +79,17 @@
 			{
 				alert(exception);
 			}
-
-
-			setInterval(detectOverlapping, 1);
 		}
 	
 		$(function()
 		  {
 			$("#rectangle1").draggable();
 			
-			detectOverlapping();
+			$(window).scroll(function()
+							 {
+								detectOverlapping();
+							 }
+							)
 		  }
 		 );
 	</script>
