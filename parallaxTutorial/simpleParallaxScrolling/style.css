@@ -1,0 +1,58 @@
+#home
+{
+	background-color: transparent;
+	background-image: url('home-bg.jpg');
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: 50% 0px;
+	background-clip: border-box;
+	background-origin: padding-box;
+	background-size: auto auto;
+	min-height: 1000px;
+}
+
+#dummy
+{
+	background-attachment: fixed;
+}
+
+#about
+{
+	background-color: transparent;
+	background-image: url('465646.jpg');
+	background-repeat: repeat;
+	background-attachment: fixed;
+
+
+
+
+	min-height: 1000px;
+}
+
+#about2
+{
+	background-color: transparent;
+	background-image: url('6yTqgoXin.png');
+	background-repeat: repeat;
+	background-attachment: fixed;
+
+	min-height: 1000px;
+}
+#about3
+{
+	background-color: transparent;
+	background-image: url('top_gun_sunset.png');
+	background-repeat: repeat;
+	background-attachment: scroll;
+
+	min-height: 1000px;
+}
+#about4
+{
+	background-color: transparent;
+	background-image: url('yaTb75diG.jpg');
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+
+	min-height: 1000px;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	
+	<link rel="stylesheet" href="../../development-bundle/themes/base/jquery.ui.all.css">
+	<script src="../../development-bundle/jquery-1.7.1.js"></script>
+	<script src="../../development-bundle/ui/jquery.ui.core.js"></script>
+	<script src="../../development-bundle/ui/jquery.ui.widget.js"></script>
+	<script src="../../development-bundle/ui/jquery.ui.mouse.js"></script>
+	<script src="../../development-bundle/ui/jquery.ui.draggable.js"></script>
+	
+	<style type="text/css">
+		#rectangle1
+		{
+			height: 80px;
+			width: 120px;
+			background-color: orange;
+			z-index: 1;
+			position: fixed;
+		}
+		
+		#rectangle2
+		{
+			width: 120px;
+			height: 1200px;
+			position: absolute;
+			background-color: #574;
+			z-index: 2;
+			position: scroll;
+			top: 220px;		
+		}
+	</style>
+</head>
+<body>
+	<div id="rectangle1"> rectangle 1 </div>
+	<div id="rectangle2">
+
+	</div>
+
+
+	<script type="text/javascript">
+
+		function getPosition(rectangle)
+		{
+			var position = rectangle.offset();
+			var right 	 = position.left + rectangle.width();
+			var bottom 	 = position.top + rectangle.height();
+			
+			return [ position.left, right, position.top, bottom ];
+		}
+		
+		function comparePositions(rectangle1, rectangle2)
+		{
+			var collision = false;
+
+			collision = ( parseInt(rectangle1[3]) >= parseInt(rectangle2[2]) ) ? true : false;
+			
+			return collision;
+		}
+
+		function detectOverlapping()
+		{
+			var rectangle1 = $("#rectangle1");
+			var rectangle2 = $("#rectangle2");
+			var rectangle1Position = getPosition(rectangle1);
+			var rectangle2Position = getPosition(rectangle2);
+
+			try
+			{
+				if( comparePositions(rectangle1Position, rectangle2Position) )
+				{
+					$("#rectangle2").css("background-color", "orange");
+				}
+				else
+				{
+					$("#rectangle2").css("background-color", "#574");
+				}
+			}
+			catch(exception)
+			{
+				alert(exception);
+			}
+		}
+	
+		$(function()
+		  {
+			$("#rectangle1").draggable();
+			
+			$(window).scroll(function()
+							 {
+								detectOverlapping();
+							 }
+							)
+		  }
+		 );
+	</script>
+	
+	
+</body>
+</html>

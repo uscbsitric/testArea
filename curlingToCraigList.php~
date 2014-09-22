@@ -1,0 +1,238 @@
+	<?php
+			// requirements: writable cookie.txt
+			include('phpQuery-onefile.php');
+
+			function curlLogin(array $postVars)
+			{
+				// New Cookie file
+				/*****
+				if(!is_dir('/var/www/testArea/craiglistCookies'))
+				{
+					mkdir("/var/www/testArea/craiglistCookies", 0777);
+					chmod("/var/www/testArea/craiglistCookies", 0777);
+				}
+
+				$ckfile = tempnam("/var/www/testArea/craiglistCookies", $postVars['inputEmailHandle']); // creates a file with unique filename.
+				$postVars = http_build_query($postVars);
+				*****/
+
+				$cookie_file_path = getcwd()."/cookie.txt";
+				$url = 'https://accounts.craigslist.org/login?LoginType=L&step=confirmation&originalURI=%2Flogin&rt=&rp=&inputEmailHandle='.$postVars['inputEmailHandle'].'&inputPassword='.$postVars['inputPassword'].'&submit=Log%20In';
+				$referer = 'http://www.craigslist.org';
+				$agent = "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.4) Gecko/20030624 Netscape/7.1 (ax)";
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_REFERER, $referer);
+				curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+				curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path);
+				curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file_path);
+				$output = curl_exec($ch);
+				$info   = curl_getinfo($ch);
+				curl_close($ch);
+
+				return $output;
+			}
+			
+			function curlSelectLocation(array $postVars)
+   		{
+         	$cookie_file_path = getcwd()."/cookie.txt";
+         	$url = 'https://accounts.craigslist.org/login/pstrdr?areaabb='.$postVars['areaabb'].'';
+         	$referer = 'http://accounts.craigslist.org';
+         	$agent = "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.4) Gecko/20030624 Netscape/7.1 (ax)";
+    			$ch = curl_init();
+    			curl_setopt($ch, CURLOPT_URL, $url);
+    			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    			curl_setopt($ch, CURLOPT_REFERER, $referer);
+    			curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+    			curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path);
+    			curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file_path);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    			$output = curl_exec($ch);
+    			$info   = curl_getinfo($ch);
+    			curl_close($ch);
+    			
+				//  https://post.craigslist.org/k/ChX9h8CX4xGvpuZ9wPCbyw/egFZx?s=type
+				// getting the random22 and the random5
+				$subject = $info['url'];
+				$exploded = explode('/', $subject);
+				$random22 = $exploded[4];
+				$dummy = $exploded[5];
+				$dummy = explode('?', $dummy);
+				$random5 = $dummy[0];
+
+				// getting the cryptedStepCheck
+				phpQuery::newDocument($output);
+				$cryptedStepCheck = pq("input:hidden[name=cryptedStepCheck]")->val();
+
+				return array('random22' => $random22, 
+								 'random5'  => $random5, 
+								 'cryptedStepCheck' => $cryptedStepCheck, 
+								 'markup' => $output
+								);
+   		}
+			
+			function postProperty( array $postVars, array $randoms )
+			{
+				//$url = "https://post.craigslist.org/k/$randoms['random22']/hZ3aAhttps://post.craigslist.org/k/hqnznieV4xGoLS_kt1OEGQ/7ci85";
+				$url = "https://post.craigslist.org/k/".$randoms['random22']."/".$randoms['random5']."";
+				$postVars = http_build_query($postVars);
+				$cookie_file_path = getcwd()."/cookie.txt";
+				$referer = $url."?s=edit";
+				$agent = "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.4) Gecko/20030624 Netscape/7.1 (ax)";
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_REFERER, $referer);
+				curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path);
+				curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file_path);
+				curl_setopt($ch, CURLOPT_POST, 1);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $postVars);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+				$output = curl_exec($ch);
+				$info	  = curl_getinfo($ch);
+				curl_close($ch);
+echo "<pre>";
+var_dump($output);
+exit('Frederick Debugging here2');
+				return $output;
+			}
+	?>
+
+
+
+		<?php
+			// login
+			$inputEmailHandle = 'usc_bsit_ric@yahoo.com';
+			$inputPassword		= 'ripe1234';
+			$postVars = array('inputEmailHandle' => $inputEmailHandle,
+									'inputPassword'	 => $inputPassword
+								  );
+
+			$cURLRequest = curlLogin( $postVars );
+
+			if( $cURLRequest )
+			{
+				echo '<div id="loginResult" style="width: 500; height: 500; overflow: hidden;">
+							'.$cURLRequest.'
+						</div>';
+			}
+			// login
+
+
+			// select location
+			$areaabb = 'mnl';
+			$postVars = array('areaabb' => $areaabb);
+			$cURLRequest = curlSelectLocation($postVars);
+
+
+			if($cURLRequest) 
+			{
+				echo '<div id="selectLocationResult" style="width: 500; height: 500; overflow: hidden;">
+							'.$cURLRequest['markup'].'
+						</div>';
+			}
+			// select location
+			
+			
+			// post land details
+			// zip code manila 1006
+			$postVars = array('FromEmail' => 'usc_bsit_ric@yahoo.com',
+									'Privacy' => 'C',
+									'contact_phone_ok' => 1,
+								   'contact_text_ok'	 => 1,
+								   'contact_phone'	 => '09161528603',
+									'contact_name'		 => 'frederick sandalo',
+									'PostingTitle'		 => 'FREDERICK SANDALO of Aberdeen',
+									'GeographicArea'	 => '',	//40 characters only
+									'postal'				 => '1006',	//15 characters only
+									'PostingBody'		 => 'THIS IS AN ABERDEEN SETT POSTING BODY',
+									'Sqft'				 => '80',	//6 characters only
+									'Ask'					 => '111222',	//11 characters only
+									'Bedrooms'			 => '2',	//1-8
+									'bathrooms'			 => '2',	//1-19
+									'housing_type'		 => '1',
+									'laundry'			 => '1',
+									'parking'			 => '1',
+									'wheelaccess'		 => '1',
+									'no_smoking'		 => '1',
+									'is_furnished'		 => '1',
+									'outsideContactOK' => '1',
+									'cryptedStepCheck' => $cURLRequest['markup']
+ 		   					 );
+
+			$randoms = array('random22' => $cURLRequest['random22'],
+								  'random5'	  => $cURLRequest['random5']
+								 );
+
+			$cURLRequest = postProperty($postVars, $randoms);
+
+
+			if( $cURLRequest )
+			{
+				echo '<div id="postPropertyResult" style="width: 500; height: 500; overflow: hidden;">
+							'.$cURLRequest.'
+						</div>';
+						
+exit('Frederick Debugging here1');
+			}
+			// post land details
+			
+			
+			// publish
+			// publish
+
+
+
+
+
+
+
+		?>
+
+<html>
+	<head>
+		<title>sample</title>
+	</head>
+	<body>
+		sample body
+	</body>
+</html>		
+
+<!--
+<iframe width="400" height="300" src="https://accounts.craigslist.org/">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+<iframe width="400" height="300" src="https://accounts.craigslist.org/">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+<iframe width="400" height="300" src="https://accounts.craigslist.org/">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+<iframe width="400" height="300" src="https://accounts.craigslist.org/">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+-->
+
+
+
+
+
+
+
+
+
+https://www.google.com/search?client=ubuntu&channel=fs&q=curl+cookies+php&ie=utf-8&oe=utf-8
+http://stackoverflow.com/questions/12885538/php-curl-and-cookies
+http://stackoverflow.com/questions/11111178/php-curl-login-cookie-how-to-set-cookies
+http://stackoverflow.com/questions/16875213/how-to-reuse-php-curl-response-cookie-and-by-pass-login-steps-on-subsequent-exec
+
+https://www.google.com/search?client=ubuntu&channel=fs&q=iframe+%2B+curl+%2B+php&ie=utf-8&oe=utf-8
+http://stackoverflow.com/questions/13160842/load-iframe-contents-via-curl-request
+https://accounts.craigslist.org/login
+https://accounts.craigslist.org/
+https://post.craigslist.org/manage/4326838210
