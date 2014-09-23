@@ -338,10 +338,22 @@ class Prince
     // xmlPath: The filename of the input XML or HTML document.
     // msgs: An optional array in which to return error and warning messages.
     // Returns true if a PDF file was generated successfully.
+<<<<<<< HEAD
     public function convert_file($xmlPath, &$msgs = array())
     {
 	$pathAndArgs = $this->getCommandLine();
 	$pathAndArgs .= '"' . $xmlPath . '"';
+=======
+    public function convert_file($xmlPath, &$msgs = array(), $targetOutputDirectory)
+    {
+	$pathAndArgs = $this->getCommandLine();
+	$pathAndArgs .= '"' . $xmlPath . '"';
+	
+	if($targetOutputDirectory)
+	{
+		$pathAndArgs .= " --output=$targetOutputDirectory";
+	}
+>>>>>>> 4417c8404e92e4b2eeff6f6ebf5bb96ebd17085b
    
 	return $this->convert_internal_file_to_file($pathAndArgs, $msgs);
 
