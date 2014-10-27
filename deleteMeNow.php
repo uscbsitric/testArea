@@ -1,5 +1,5 @@
 <?php
-
+		// frederick debugging here
 		$connection = mysqli_connect('localhost', 'lhstage', 'landhub$55', 'data_synd_platform');
 										$newValue = hash_hmac('sha256', 'password123', 'b315$4acfaa3a417007ad11bdb5fff308732f@679a#1919z716a02');
 										$query = "update users set password='$newValue' where id=7490";
